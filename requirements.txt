@@ -1,0 +1,21 @@
+# Fashion AI Chatbot - Dependencies
+# Core web framework
+flask==3.0.0
+flask-cors==4.0.0
+
+# OpenAI API for embeddings and chat completion
+openai>=2.8.0
+
+# Data processing and numerical operations
+pandas==2.1.4
+numpy==1.26.2
+
+# Environment variable management
+python-dotenv==1.0.0
+
+# Optional: For production deployment
+gunicorn==21.2.0
+
+# Development dependencies
+pytest==7.4.3
+pytest-cov==4.1.0

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashion AI Advisor - RAG-Powered Chatbot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1>🎨 Fashion AI Advisor</h1>
+                <p class="subtitle">Powered by Retrieval-Augmented Generation (RAG)</p>
+            </div>
+            <div class="mode-toggle">
+                <label class="toggle-label">
+                    <input type="checkbox" id="ragToggle" checked>
+                    <span class="toggle-slider"></span>
+                    <span class="toggle-text">RAG Mode</span>
+                </label>
+            </div>
+        </header>
+
+        <!-- Info Banner -->
+        <div class="info-banner" id="infoBanner">
+            <div class="info-content">
+                <span class="info-icon">ℹ️</span>
+                <div class="info-text">
+                    <strong id="modeTitle">RAG Mode Active:</strong> <span id="modeContext">Responses are grounded in 82 curated 2023 fashion trends.</span>
+                    <span id="modeDescription">Each answer includes sources and citations.</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sample Questions -->
+        <div class="sample-questions" id="sampleQuestions">
+            <h3>Try asking:</h3>
+            <div class="questions-grid" id="questionsGrid">
+                <!-- Populated by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Chat Container -->
+        <div class="chat-container">
+            <div class="messages" id="messagesContainer">
+                <div class="welcome-message">
+                    <h2>Welcome to Fashion AI Advisor! 👗</h2>
+                    <p>I'm your AI-powered fashion consultant trained on 2023 trends. Ask me about:</p>
+                    <ul>
+                        <li>Color trends and bold hues</li>
+                        <li>Office and professional wear</li>
+                        <li>Casual and utilitarian styles</li>
+                        <li>Accessories and footwear</li>
+                        <li>Sustainable fashion</li>
+                    </ul>
+                    <p class="tech-note">
+                        <strong>Tech Note:</strong> This chatbot demonstrates RAG (Retrieval-Augmented Generation)
+                        by using semantic search to find relevant trends and injecting them as context
+                        to reduce hallucination and provide cited responses.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Loading Indicator -->
+            <div class="loading" id="loadingIndicator" style="display: none;">
+                <div class="loading-dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <span class="loading-text">Searching fashion trends...</span>
+            </div>
+        </div>
+
+        <!-- Input Area -->
+        <div class="input-container">
+            <div class="input-wrapper">
+                <textarea
+                    id="userInput"
+                    placeholder="Ask about 2023 fashion trends..."
+                    rows="1"
+                ></textarea>
+                <button id="sendButton" class="send-button">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M22 2L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="input-footer">
+                <button id="compareButton" class="compare-button">
+                    Compare RAG vs Basic
+                </button>
+                <button id="clearButton" class="clear-button">
+                    Clear Chat
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
